@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 import static framework.PropertyReader.getProperties;
 
-public class BrowserFactory {
+public class DriverFactory {
     public static String browser;
     public static String downloadDir;
 
