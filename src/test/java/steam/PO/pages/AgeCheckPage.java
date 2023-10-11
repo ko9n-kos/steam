@@ -4,7 +4,6 @@ import framework.elements.Button;
 import framework.elements.DropDown;
 import framework.elements.Label;
 import org.openqa.selenium.By;
-import steam.PO.commonPageLogic.SteamBasePage;
 
 public class AgeCheckPage extends SteamBasePage {
 
@@ -17,12 +16,8 @@ public class AgeCheckPage extends SteamBasePage {
     }
 
     public void ageCheck() {
-        if (lblAgeCheckContainer.isPresent()) {
-            selectYearOfBorn();
-            clickView();
-        } else {
-            new GamePage();
-        }
+        selectYearOfBorn();
+        clickView();
     }
 
     public void selectYearOfBorn() {

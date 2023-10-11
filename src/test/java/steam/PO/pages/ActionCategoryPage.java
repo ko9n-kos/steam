@@ -7,12 +7,12 @@ import framework.elements.Label;
 import org.openqa.selenium.*;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import steam.PO.commonPageLogic.SteamBasePage;
 
 import java.io.IOException;
 import java.util.List;
 
 import static framework.BaseTest.*;
+import static steam.PO.commonLogic.Localization.localizationPropertySelect;
 
 public class ActionCategoryPage extends SteamBasePage {
 
@@ -29,7 +29,7 @@ public class ActionCategoryPage extends SteamBasePage {
     protected static int max;
 
     public ActionCategoryPage() {
-        super(lblTitle.findElement());
+        super(lblTitle);
     }
 
     public void findHighestDiscount(BaseElement baseElement, String locator) {
@@ -37,7 +37,6 @@ public class ActionCategoryPage extends SteamBasePage {
         List<WebElement> listOfDiscounts = baseElement.findElements();
         max = Integer.parseInt(baseElement.getInnerHTML().replace("-", "").replace("%", "").trim());
         for (WebElement el : listOfDiscounts) {
-            js.executeScript("arguments[0].scrollIntoView({block:'center'});", el);
             if (Integer.parseInt(listOfDiscounts.get(listOfDiscounts.indexOf(el)).getAttribute("innerHTML")
                     .replace("-", "").replace("%", "").trim()) > max) {
                 max = Integer.parseInt(listOfDiscounts.get(listOfDiscounts.indexOf(el)).getAttribute("innerHTML")
@@ -48,14 +47,14 @@ public class ActionCategoryPage extends SteamBasePage {
         baseElement.clickViaJs(baseElement.getRandomElement(baseElement.findElements(By.xpath(String.format(locator, max)))));
         try {
             switchTab(oldTab);
-        } catch (IndexOutOfBoundsException exception) {
-            System.out.println("There is no new tab");
+        } catch (Exception ignored) {
         }
     }
 
     public void selectHighestDiscount() throws IOException {
         Label specialOffers = new Label(By.xpath(String.format(specOffers, localizationPropertySelect("specialOffers"))));
         if (specialOffers.isDisplayed()) {
+            btnPrevious.click();
             btnPrevious.click();
             findHighestDiscount(lblSpecialDiscounts, specOffApp);
         } else {

@@ -1,8 +1,11 @@
 package framework;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -49,5 +52,28 @@ public class Browser extends DriverFactory {
         ArrayList<String> newTab = new ArrayList<>(driver.getWindowHandles());
         newTab.remove(oldTab);
         driver.switchTo().window(newTab.get(0));
+    }
+
+    public static String getFilePath() throws IOException {
+        return downloadDir + getProperties("configuration.properties", "fileName");
+    }
+
+    public static boolean waitFileCanRead(File file) {
+        return wait.until(webDriver -> file.canRead());
+    }
+
+    public static void waitForPageToLoad() {
+        try {
+            wait.until((ExpectedCondition<Boolean>) d -> {
+                if (!(d instanceof JavascriptExecutor)) {
+                    return true;
+                }
+                Object result = ((JavascriptExecutor) d)
+                        .executeScript("return document['readyState'] ? 'complete' == document.readyState : true");
+                return result instanceof Boolean && (Boolean) result;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

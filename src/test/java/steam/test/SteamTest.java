@@ -11,16 +11,18 @@ public class SteamTest extends BaseTest {
     @Test
     public void SteamSearchGameTest() throws IOException {
         MainPage mainPage = new MainPage();
-        mainPage.selectLanguage("Russian");
-        mainPage.selectCategory("categories");
-        mainPage.selectGenre("action");
+        mainPage.getHeader().selectLanguage("Russian");
+        mainPage.getMainMenu().mainMenuNavigation("categories", "action");
         ActionCategoryPage actionCategoryPage = new ActionCategoryPage();
         actionCategoryPage.selectHighestDiscount();
-        AgeCheckPage ageCheckPage = new AgeCheckPage();
-        ageCheckPage.ageCheck();
+        try{
+            AgeCheckPage ageCheckPage = new AgeCheckPage();
+            ageCheckPage.ageCheck();
+        } catch (Exception ignored){
+        }
         GamePage gamePage = new GamePage();
-        gamePage.clickInstallSteam();
+        gamePage.getHeader().clickInstall();
         SteamInstallationPage steamInstallationPage = new SteamInstallationPage();
-        steamInstallationPage.downloadSteam();
+        steamInstallationPage.downloadAndCheck();
     }
 }
