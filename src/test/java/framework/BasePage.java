@@ -10,11 +10,11 @@ public class BasePage {
 
     public BasePage(BaseElement title) {
         baseElement = title;
-        checkPage(title);
+        checkPage();
     }
 
-    public void checkPage(BaseElement title) {
-        title.waitVisibilityOfElement();
+    public void checkPage() {
+        baseElement.waitVisibilityOfElement();
         waitForPageToLoad();
     }
 }
