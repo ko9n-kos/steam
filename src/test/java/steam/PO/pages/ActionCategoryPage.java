@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static framework.BaseTest.*;
+import static framework.MyLogger.info;
 import static steam.PO.commonLogic.Localization.localizationPropertySelect;
 
 public class ActionCategoryPage extends SteamBasePage {
@@ -29,7 +30,7 @@ public class ActionCategoryPage extends SteamBasePage {
     protected static int max;
 
     public ActionCategoryPage() {
-        super(lblTitle);
+        super(lblTitle, "Action category page");
     }
 
     public void findHighestDiscount(BaseElement baseElement, String locator) {
@@ -43,6 +44,7 @@ public class ActionCategoryPage extends SteamBasePage {
                         .replace("-", "").replace("%", "").trim());
             }
         }
+        info("Highest discount is " + max);
         String oldTab = Browser.windowHandle();
         baseElement.clickViaJs(baseElement.getRandomElement(baseElement.findElements(By.xpath(String.format(locator, max)))));
         try {

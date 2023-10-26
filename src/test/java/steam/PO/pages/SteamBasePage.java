@@ -12,7 +12,7 @@ public class SteamBasePage extends BasePage {
     protected Header header = new Header();
     protected MainMenu mainMenu = new MainMenu();
 
-    public SteamBasePage(BaseElement title) {
-        super(title);
+    public SteamBasePage(BaseElement title, String name) {
+        super(title, name);
     }
 }

@@ -5,6 +5,8 @@ import framework.elements.DropDown;
 import framework.elements.Label;
 import org.openqa.selenium.By;
 
+import static framework.MyLogger.info;
+
 public class AgeCheckPage extends SteamBasePage {
 
     protected static final Label lblAgeCheckContainer = new Label(By.xpath("//div[@class='agegate_text_container']/child::h2"));
@@ -12,12 +14,13 @@ public class AgeCheckPage extends SteamBasePage {
     protected static final Button btnView = new Button(By.xpath("//div[@class='agegate_btn_ctn']/a[@id='view_product_page_btn']"));
 
     public AgeCheckPage() {
-        super(lblAgeCheckContainer);
+        super(lblAgeCheckContainer, "Age check page");
     }
 
     public void ageCheck() {
         selectYearOfBorn();
         clickView();
+        info("Age is confirmed");
     }
 
     public void selectYearOfBorn() {

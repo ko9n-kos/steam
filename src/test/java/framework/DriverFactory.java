@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import java.io.IOException;
 import java.util.HashMap;
 
+import static framework.MyLogger.info;
 import static framework.PropertyReader.getProperties;
 
 public class DriverFactory {
@@ -46,6 +47,7 @@ public class DriverFactory {
             default:
                 break;
         }
+        info("Browser " + browser + " is used");
         return driver;
     }
 }

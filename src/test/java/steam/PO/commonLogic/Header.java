@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.io.IOException;
 import java.util.List;
 
+import static framework.MyLogger.info;
 import static steam.PO.commonLogic.Localization.localizationPropertySelect;
 
 public class Header {
@@ -43,5 +44,6 @@ public class Header {
                 break;
             }
         }
+        info(language + " language selected");
     }
 }

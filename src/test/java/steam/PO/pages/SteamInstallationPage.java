@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import static framework.Browser.getFilePath;
 import static framework.Browser.waitFileCanRead;
+import static framework.MyLogger.info;
 import static steam.PO.commonLogic.Localization.localizationPropertySelect;
 
 public class SteamInstallationPage extends SteamBasePage {
@@ -18,7 +19,7 @@ public class SteamInstallationPage extends SteamBasePage {
     protected static String installSteam = "//div[@id='about_greeting']//a[contains(text(), '%s')]";
 
     public SteamInstallationPage() {
-        super(lblSteamTitle);
+        super(lblSteamTitle, "Steam installation page");
     }
 
     public void downloadAndCheck() throws IOException {
@@ -26,6 +27,8 @@ public class SteamInstallationPage extends SteamBasePage {
         btnDownload.click();
         File file = new File(getFilePath());
         Assert.assertTrue(waitFileCanRead(file));
+        info("Steam downloaded");
         file.delete();
+        info("Steam file deleted from local source");
     }
 }

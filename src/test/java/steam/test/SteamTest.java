@@ -11,7 +11,6 @@ import static io.qameta.allure.Allure.addAttachment;
 import static io.qameta.allure.Allure.step;
 
 public class SteamTest extends BaseTest {
-
     @Test
     public void SteamSearchGameTest() throws IOException {
         MainPage mainPage = new MainPage();
