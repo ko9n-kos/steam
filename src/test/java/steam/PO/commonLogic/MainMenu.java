@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import java.io.IOException;
 
-import static framework.MyLogger.info;
+import static utils.MyLogger.info;
 import static steam.PO.commonLogic.Localization.localizationPropertySelect;
 
 @Getter

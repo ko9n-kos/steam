@@ -6,7 +6,7 @@ import steam.PO.pages.*;
 
 import java.io.IOException;
 
-import static framework.ScreenshotTaker.takeScreenshot;
+import static utils.ScreenshotTaker.takeScreenshot;
 import static io.qameta.allure.Allure.addAttachment;
 import static io.qameta.allure.Allure.step;
 

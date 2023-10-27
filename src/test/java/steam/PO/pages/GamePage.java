@@ -4,7 +4,7 @@ import framework.elements.Label;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-import static framework.MyLogger.info;
+import static utils.MyLogger.info;
 
 public class GamePage extends SteamBasePage {
 

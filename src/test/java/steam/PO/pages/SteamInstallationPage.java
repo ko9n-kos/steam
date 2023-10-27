@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import static framework.Browser.getFilePath;
 import static framework.Browser.waitFileCanRead;
-import static framework.MyLogger.info;
+import static utils.MyLogger.info;
 import static steam.PO.commonLogic.Localization.localizationPropertySelect;
 
 public class SteamInstallationPage extends SteamBasePage {

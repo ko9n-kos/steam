@@ -3,7 +3,7 @@ package framework;
 import framework.elements.BaseElement;
 
 import static framework.Browser.waitForPageToLoad;
-import static framework.MyLogger.info;
+import static utils.MyLogger.info;
 
 public class BasePage {
     BaseElement baseElement;

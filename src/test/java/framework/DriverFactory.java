@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import java.io.IOException;
 import java.util.HashMap;
 
-import static framework.MyLogger.info;
+import static utils.MyLogger.info;
 import static framework.PropertyReader.getProperties;
 
 public class DriverFactory {

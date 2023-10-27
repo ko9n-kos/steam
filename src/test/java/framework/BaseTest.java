@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeTest;
 
 import java.io.IOException;
 
-import static framework.MyLogger.info;
+import static utils.MyLogger.info;
 
 public class BaseTest extends Browser {
     Browser browser = new Browser();

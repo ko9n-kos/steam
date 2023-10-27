@@ -5,7 +5,7 @@ import framework.elements.DropDown;
 import framework.elements.Label;
 import org.openqa.selenium.By;
 
-import static framework.MyLogger.info;
+import static utils.MyLogger.info;
 
 public class AgeCheckPage extends SteamBasePage {
 
